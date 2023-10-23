@@ -9,35 +9,35 @@ import { useStateValue } from './components/StateProvider';
 const AppContext = React.createContext();
 
 const MyApp = ({children}) => {
-  // const [{user},setUser] = useStateValue();
-  // const [log,setLog] = useState(<LogIn/>)
+  const [{user},setUser] = useStateValue();
+  const [log,setLog] = useState(<LogIn/>)
 
   return (
     <div>  
 
+        
+      
+      {!user ? log :
+        
+        setLog(
+          <>
         <Header/>
         <Box style={{marginTop: "84px"}} >
           <Main/>
         </Box>
         <Footer/>
-      
-      {/* {!user ? log :
-        
-        setLog(
-          <>
-        
         </>
         )
         
         }
         
-        <AppContext.Provider value={{log,setLog}} >{children}</AppContext.Provider>; */}
+        <AppContext.Provider value={{log,setLog}} >{children}</AppContext.Provider>;
     </div>
   )
 }
-// const useGlobalContext = ()=>{
-//   return useContext(AppContext);
-// };
+const useGlobalContext = ()=>{
+  return useContext(AppContext);
+};
 
-// export {AppContext,useGlobalContext};
+export {AppContext,useGlobalContext};
 export default MyApp
